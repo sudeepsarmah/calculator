@@ -17,7 +17,7 @@ function reducer(state, { type, payload }) {
             // to prevent more than one '0' to be added in the first place
             if (payload.digit === "0" && state.currentOperand === "0") return state
             // to avoid more than one '.' in a number
-            if (payload.digit === "." && state.currentOperand.include(".")) return state
+            if (payload.digit === "." && state.currentOperand.includes(".")) return state
             return {
                 ...state,
                 currentOperand: `${state.currentOperand || ""}${payload.digit}`
@@ -65,7 +65,7 @@ function reducer(state, { type, payload }) {
             // when there's nothing to delete
             if (state.currentOperand == null) return state
             // when there's only one digit to delete
-            if (state.currentOperand.lenght === 1) {
+            if (state.currentOperand.length === 1) {
                 return {
                     ...state,
                     currentOperand: null
